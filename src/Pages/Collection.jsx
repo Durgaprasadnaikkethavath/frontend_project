@@ -7,6 +7,7 @@ import ProductItem from "../Components/ProductItem";
 const Collection = () => {
   const { products, search, showSearch } = useContext(ShopContext);
 
+  const [showFilter, setShowFilter] = useState(false);
   const [filterProducts, setFilterProducts] = useState([]);
   const [category, setCategory] = useState([]);
   const [subCategory, setSubCategory] = useState([]);
@@ -70,13 +71,13 @@ const Collection = () => {
     }
   };
 
-  useEffect(() => {
-    setFilterProducts(products);
-  }, []);
+  // useEffect(() => {
+  //   setFilterProducts(products);
+  // }, []);
 
   useEffect(() => {
     applyFilter();
-  }, [category, subCategory, search, showSearch]);
+  }, [category, subCategory, search, showSearch, products]);
 
   useEffect(() => {
     sortProduct();
